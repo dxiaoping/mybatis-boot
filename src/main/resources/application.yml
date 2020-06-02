@@ -1,0 +1,17 @@
+server:
+  port: 1010
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.101.72.84:3306/powersi?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true
+    username: root
+    password: 123456
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true  # ¿ªÆôÍÕ·åÃüÃû
+  type-aliases-package: com.xp.mybatisboot.mapper

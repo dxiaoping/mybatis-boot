@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xp.mybatisboot.mapper.UserMapper">
+    <insert id="insert" parameterType="com.xp.mybatisboot.pojo.User">
+        insert into user(phone,name,gender,age)
+        value (#{phone},#{name},#{gender},#{age})
+    </insert>
+    <select id="select" parameterType="long" resultType="com.xp.mybatisboot.pojo.User">
+        select * from user where phone = #{phone}
+    </select>
+    <update id="update" parameterType="com.xp.mybatisboot.pojo.User">
+        update user
+        <set>
+            <if test="name != null">name =#{name},</if>
+            <if test="gender != null">gender =#{gender},</if>
+            <if test="age != 0">age =#{age},</if>
+        </set>
+        where phone = #{phone}
+    </update>
+
+    <delete id="delete" parameterType="long" >
+        delete from user where phone = #{phone}
+    </delete>
+</mapper>
